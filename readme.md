@@ -1,4 +1,4 @@
-# MeGPT: Fine-tune a Language Model to Talk to Yourself
+# MeGPT: Fine-tune a Language Model from your iMessage Conversations
 
 MeGPT allows you to fine-tune a large language model on your own messages, enabling you to talk to yourself.
 
