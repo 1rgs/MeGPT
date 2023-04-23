@@ -10,8 +10,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments
 
 model_name = "facebook/opt-1.3b"
 block_size = 128
-# EDIT THIS TO POINT TO YOUR CSV FILE
-input_csv = "messages.csv"
+input_json = "response.json"
 
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
@@ -76,7 +75,7 @@ training_args = TrainingArguments(
     logging_strategy="steps",
 )
 
-data = load_dataset("csv", data_files="rgsmsgs.csv", split="train")
+data = load_dataset("json", data_files=input_json, split="train")
 data = data.map(lambda x: {"label": 0})
 data = data.train_test_split(test_size=0.1)
 
@@ -124,6 +123,7 @@ model.save_pretrained(
     push_to_hub=False,
 )
 
+model.config.use_cache = True  # re-enable for inference
 
 # inference
 PROMPT = """hello, how are you?"""
