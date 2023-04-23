@@ -2,6 +2,10 @@
 
 MeGPT allows you to fine-tune a large language model on your own messages, enabling you to talk to yourself.
 
+<!-- add image -->
+
+![MeGPT](/demo.png)
+
 This repo contains code for:
 
 1. Extracting your iMessage conversations from your Mac
